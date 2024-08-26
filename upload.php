@@ -6,10 +6,10 @@ if(isset($_POST['submit'])){
     if($_FILES['file']['error'] === UPLOAD_ERR_OK) {
       $tmp_name = $_FILES['file']['tmp_name'];
       $name = basename($_FILES['file']['name']);
-      $typesAutorises = array('image/jpeg', 'image/png');
+      $typesAutorises = array('image/jpeg', 'image/png', 'application/pdf');
       $type= $_FILES['file']['type'];
       if(!in_array($type, $typesAutorises)){
-        die('Erreur : Seuls les fichiers JPEG , PNG sont autorisés.');
+        die('Erreur : Seuls les fichiers JPEG , PNG et PDF sont autorisés.');
       }
       $nomUnique = time().'_'.mt_rand();
       
